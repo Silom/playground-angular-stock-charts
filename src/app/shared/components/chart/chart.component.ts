@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { StockStatusEntry } from '../../types/stock.type'
+import { IStockStatusEntry } from '../../types/stock.type'
 import * as d3 from 'd3'
 
 @Component({
@@ -16,7 +16,7 @@ export class ChartComponent implements OnInit {
     private width = 750 - this.margin * 2
     private height = 400 - this.margin * 2
 
-    @Input() data!: StockStatusEntry[]
+    @Input() data!: IStockStatusEntry[]
 
     ngOnInit(): void {
         // this.createSvg()

@@ -6,8 +6,8 @@ import {
     StockService,
 } from '../../shared/services/stock.service'
 import {
-    StockStatusEntry,
-    StockApiResponse,
+    IStockStatusEntry,
+    IStockApiResponse,
 } from '../../shared/types/stock.type'
 import { ChartComponent } from '../../shared/components/chart/chart.component'
 import { ReactiveFormsModule } from '@angular/forms'
@@ -22,7 +22,7 @@ import data from '../../shared/services/mock001'
     styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-    chartData: StockStatusEntry[] = []
+    chartData: IStockStatusEntry[] = []
 
     symbol = new FormControl('')
 
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
         this.chartData = data.values
         // // lets not use all out tokens
         // this.stockService.testCagetDatall().subscribe({
-        //     next: ({ meta, values }: StockApiResponse) => {
+        //     next: ({ meta, values }: IStockApiResponse) => {
         //         console.log(meta)
         //         console.log(values)
         //         this.chartData = values
@@ -47,9 +47,7 @@ export class HomeComponent implements OnInit {
         }
 
         this.stockService.getData(queries).subscribe({
-            next: ({ meta, values }: StockApiResponse) => {
-                console.log(meta)
-                console.log(values)
+            next: ({ values }: IStockApiResponse) => {
                 this.chartData = values
             },
         })
