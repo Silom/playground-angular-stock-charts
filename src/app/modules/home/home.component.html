@@ -1,0 +1,11 @@
+<section>
+    <form>
+        <label for="symbol">WKN: </label>
+        <input id="symbol" type="text" [formControl]="symbol">
+
+        <button class="primary" type="button" (click)="queryData()">Submit</button>
+    </form>
+</section>
+<section class="results">
+    <app-chart [data]="chartData"></app-chart>
+</section>

@@ -1,0 +1,11 @@
+:host {
+    width: 100%;
+    max-width: 1200px;
+    max-height: 50vh;
+    min-height: 20vh;
+}
+
+figure {
+    height: 100%;
+    width: 100%;
+}
